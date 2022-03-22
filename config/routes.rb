@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   end
   # Defines the root path route ("/")
 
-  get '/', to: redirect('/users')
+  root 'users#index'
 end

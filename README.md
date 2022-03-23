@@ -20,6 +20,12 @@ To get a local copy up and running follow these simple example steps:
 5- Run the command `bundle install` to install all gems of the project.<br>
 6- To run the server use command `rails s` and to see it go to your browser and use this link `http://127.0.0.1:3000/`.<br>
 
+## Tests
+To run the tests, follow these simple steps:
+
+1- Run `bundle install` to install all gems of the project.<br>
+2- Run `bundle exec rspec` to run all the tests.<br>
+
 ## Author
 
 👤 **Shady Shawkat**

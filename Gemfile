@@ -71,4 +71,6 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'rspec-rails', '~> 5.0.0'
+  gem 'ffi'
 end

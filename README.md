@@ -20,6 +20,13 @@ To get a local copy up and running follow these simple example steps:
 5- Run the command `bundle install` to install all gems of the project.<br>
 6- To run the server use command `rails s` and to see it go to your browser and use this link `http://127.0.0.1:3000/`.<br>
 
+## Databases setup
+
+To create the databases, please follow these simple example steps:
+
+1- Run the command `rails db:create` to create the databases.
+2- Run the command `rails db:migrate` to create the neccessary tables and relations.
+
 ## Tests
 To run the tests, follow these simple steps:
 

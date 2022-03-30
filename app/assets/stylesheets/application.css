@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
@@ -57,12 +58,15 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: black;
+  color: white;
 }
 
 /* A elements that don't have a class get default styles */
 a {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 /* Make images easier to work with */
@@ -85,7 +89,7 @@ select {
   html:focus-within {
     scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -95,14 +99,6 @@ select {
     scroll-behavior: auto !important;
   }
 }
-
-/* Main */
-body {
-  font-family: 'Josefin Sans', sans-serif;
-  background-color: black;
-  color: white;
-}
-
 /* User card */
 .user-card {
   display: flex;
@@ -184,7 +180,7 @@ body {
 /* Nav */
 nav {
   height: 50px;
-  box-shadow: #00000059 0px 5px 15px;
+  box-shadow: #00000059 0 5px 15px;
   display: flex;
   align-items: center;
   justify-content: flex-end;

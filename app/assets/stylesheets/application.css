@@ -29,6 +29,8 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 figure,
 blockquote,
@@ -142,10 +144,31 @@ body {
   font-size: 24px;
 }
 
+/* Post card */
+.post-card {
+  display: flex;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 7px;
+  flex-direction: column;
+  color: white;
+}
+
+.post-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.post-details-counter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
 /* Nav */
 nav {
   height: 50px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: #00000059 0px 5px 15px;
   display: flex;
   align-items: center;
   justify-content: flex-end;

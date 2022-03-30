@@ -99,6 +99,7 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
 /* User card */
 .user-card {
   display: flex;

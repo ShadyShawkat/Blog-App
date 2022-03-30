@@ -1,2 +1,22 @@
-<h1>Users#index</h1>
-<p>Here is a list of users</p>
+<ul class="users-list">
+<% @users.each do |user| %>
+  <li>
+    <%= link_to controller: "users", action: "show", id: user.id do %>
+      <div class="user-card">
+        <div class="card-img">
+          <%= user.photo.nil? ? image_tag(user.photo): image_tag("user-img-placeholder.png") %>
+        </div>
+        <div class="card-content">
+          <h4>
+            <%= user.name %>
+          </h4>
+          <span class="posts-counter">
+            Posts: <%= user.posts_counter || 0 %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+

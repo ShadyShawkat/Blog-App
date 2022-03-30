@@ -13,3 +13,187 @@
  *= require_tree .
  *= require_self
  */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* User card */
+.user-card {
+  display: flex;
+  background-color: rgb(43, 43, 43);
+  padding: 20px;
+  border-radius: 7px;
+  color: white;
+}
+
+.card-img {
+  max-height: 200px;
+  flex-basis: 10vw;
+  max-width: 200px;
+  margin-right: 2vw;
+  border: 10px solid #161616;
+  background-color: #0f0f0f;
+  border-radius: 100px;
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+.card-img img {
+  width: 100%;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-content h4 {
+  align-self: center;
+  font-size: 40px;
+}
+
+.card-content .posts-counter {
+  align-self: end;
+  font-size: 24px;
+}
+
+/* Post card */
+.user-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.post-card {
+  display: flex;
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-radius: 7px;
+  flex-direction: column;
+  color: white;
+}
+
+.post-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.post-details-counter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+/* Comment card */
+.comments-card {
+  display: flex;
+  background-color: #202020;
+  padding: 20px;
+  border-radius: 7px;
+  color: white;
+}
+
+/* Nav */
+nav {
+  height: 50px;
+  box-shadow: #00000059 0 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  background-color: #2f0033;
+}
+
+.nav-link {
+  color: white;
+}
+
+/* Content container */
+.content-container {
+  padding: 50px 15vw;
+}

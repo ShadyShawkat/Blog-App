@@ -1,2 +1,35 @@
-<h1>Users#show</h1>
-<p>Here are the details of a given user</p>
+<div class="user-card">
+  <div class="card-img">
+    <%= @user.photo.nil? ? image_tag(@user.photo): image_tag("user-img-placeholder.png") %>
+  </div>
+  <div class="card-content">
+    <h4>
+      <%= @user.name %>
+    </h4>
+    <span class="posts-counter">
+      Posts: <%= @user.posts_counter %>
+    </span>
+  </div>
+</div>
+
+<div class="user-bio">
+  <h5>Bio:</h5>
+  <p><%= @user.bio %></p>
+</div>
+
+<ul class="user-posts">
+  <% @user.last_three_posts.each do |post| %>
+    <li>
+      <%= link_to "/users/#{@user.id}/posts" do %>
+        <div class="post-card">
+          <h6 class="post-title"><%= post.title %></h6>
+          <p><%= post.text %></p>
+          <div class="post-details-counter">
+            <span>Likes: <%= post.likes_counter || 0 %></span>
+            <span>Comments: <%= post.comments_counter || 0 %></span>
+          </div>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

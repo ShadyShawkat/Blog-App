@@ -91,3 +91,30 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+/* Main */
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: black;
+  color: white;
+}
+
+/* Nav */
+nav {
+  height: 50px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  background-color: #2f0033;
+}
+
+.nav-link {
+  color: white;
+}
+
+/* Content container */
+.content-container {
+  padding: 50px 10vw;
+}

@@ -1,2 +1,16 @@
-<h1>Posts#show</h1>
-<p>Here are the details of a given post for a given user</p>
+<div class="post-card">
+  <h6 class="post-title"><%= @post.title %></h6>
+  <p><%= @post.text %></p>
+  <div class="post-details-counter">
+    <span>Likes: <%= @post.likes_counter %></span>
+    <span>Comments: <%= @post.comments_counter %></span>
+  </div>
+</div>
+
+<div class="comments-card">
+  <ul class="post-comments">
+    <%= @post.comments.each do |comment|  %>
+      <li><%= User.find{|user| user.id == comment.user_id}.name %>: &nbsp; <%= comment.text %></li>
+    <% end %>
+  </ul>
+</div>

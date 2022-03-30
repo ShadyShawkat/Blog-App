@@ -145,6 +145,13 @@ body {
 }
 
 /* Post card */
+.user-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 40px;
+}
+
 .post-card {
   display: flex;
   background-color: #1f1f1f;
@@ -163,6 +170,15 @@ body {
   display: flex;
   justify-content: flex-end;
   gap: 20px;
+}
+
+/* Comment card */
+.comments-card {
+  display: flex;
+  background-color: #202020;
+  padding: 20px;
+  border-radius: 7px;
+  color: white;
 }
 
 /* Nav */

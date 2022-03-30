@@ -1,2 +1,38 @@
-<h1>Posts#index</h1>
-<p>Here is a list of posts for a given user</p>
+<div class="user-card">
+  <div class="card-img">
+    <%= @user.photo.nil? ? image_tag(@user.photo): image_tag("user-img-placeholder.png") %>
+  </div>
+  <div class="card-content">
+    <h4>
+      <%= @user.name %>
+    </h4>
+    <span class="posts-counter">
+      Posts: <%= @user.posts_counter %>
+    </span>
+  </div>
+</div>
+
+<ul class="user-posts">
+  <% @user.last_three_posts.each do |post| %>
+    <li>
+      <%= link_to "/users/#{@user.id}/posts/#{post.id}" do %>
+        <div class="post-card">
+          <h6 class="post-title"><%= post.title %></h6>
+          <p><%= post.text %></p>
+          <div class="post-details-counter">
+            <span>Likes: <%= post.likes_counter %></span>
+            <span>Comments: <%= post.comments_counter %></span>
+          </div>
+        </div>
+
+        <div class="comments-card">
+          <ul class="post-comments">
+            <%= post.last_five_comments.each do |comment|  %>
+              <li><%= User.find{|user| user.id == comment.user_id}.name %>: &nbsp; <%= comment.text %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

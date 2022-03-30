@@ -99,6 +99,46 @@ body {
   color: white;
 }
 
+/* User card */
+.user-card {
+  display: flex;
+  background-color: rgb(43, 43, 43);
+  padding: 20px;
+  border-radius: 7px;
+}
+
+.card-img {
+  max-height: 200px;
+  flex-basis: 10vw;
+  max-width: 200px;
+  margin-right: 2vw;
+  border: 10px solid #161616;
+  background-color: #0f0f0f;
+  border-radius: 100px;
+  overflow: hidden;
+  padding-top: 5px;
+}
+
+.card-img img {
+  width: 100%;
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-content h4 {
+  align-self: center;
+  font-size: 40px;
+}
+
+.card-content .posts-counter {
+  align-self: end;
+  font-size: 24px;
+}
+
 /* Nav */
 nav {
   height: 50px;

@@ -33,4 +33,8 @@ RSpec.describe Post, type: :model do
     subject.comments.create(text: 'This is my sixth comment')
     expect(subject.last_five_comments.count).to eq(5)
   end
+
+  it 'set_user_posts_counter should return a right result when calling it with after_save' do
+    expect(subject.user.posts_counter).to eq(1)
+  end
 end

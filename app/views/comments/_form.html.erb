@@ -1,0 +1,5 @@
+<h2>Write a new comment:</h2>
+<%= form_with url: "/comments/#{post.id}", scope: :comment do |form| %>
+    <%= form.text_area :text %>
+    <%= form.submit "Post Comment" %>
+<% end %>

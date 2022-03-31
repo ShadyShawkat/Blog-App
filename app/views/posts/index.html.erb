@@ -1,3 +1,9 @@
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
 <div class="user-card">
   <div class="card-img">
     <%= @user.photo.nil? ? image_tag(@user.photo): image_tag("user-img-placeholder.png") %>
@@ -25,13 +31,13 @@
           </div>
         </div>
 
-        <div class="comments-card">
-          <ul class="post-comments">
-            <% post.last_five_comments.each do |comment| %>
-              <li><%= comment.author.name %>: &nbsp; <%= comment.text %></li>
-            <% end %>
-          </ul>
-        </div>
+          <div class="comments-card">
+            <ul class="post-comments">
+              <% post.last_five_comments.each do |comment| %>
+                <li><%= comment.author.name %>: &nbsp; <%= comment.text %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
     </li>
   <% end %>

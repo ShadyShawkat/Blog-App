@@ -23,4 +23,14 @@ RSpec.describe Post, type: :model do
   it 'subject should be valid' do
     expect(subject).to be_valid
   end
+
+  it 'last_five_comments should return five result or lower' do
+    subject.comments.create(text: 'This is my first comment')
+    subject.comments.create(text: 'This is my second comment')
+    subject.comments.create(text: 'This is my third comment')
+    subject.comments.create(text: 'This is my fourth comment')
+    subject.comments.create(text: 'This is my fifth comment')
+    subject.comments.create(text: 'This is my sixth comment')
+    expect(subject.last_five_comments.count).to eq(5)
+  end
 end

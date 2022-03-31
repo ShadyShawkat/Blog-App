@@ -9,10 +9,10 @@ class CommentsController < ApplicationController
         if @comment.save
           redirect_to user_post_path(current_user, @post), notice: 'Comment created successfully!'
         else
-            # error message
-            flash.now[:error] = "Error: Post could not be created"
-            # render new
-            render :new, locals: { comment: comment }
+          # error message
+          flash.now[:error] = 'Error: Post could not be created'
+          # render new
+          render :new, locals: { comment: }
         end
       end
     end

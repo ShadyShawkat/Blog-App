@@ -10,9 +10,9 @@ RSpec.describe Comment, type: :model do
     author: user, title: 'Hola', text: 'This is my first post',
     likes_counter: 0, comments_counter: 0
   )
-  
+
   subject do
-    Comment.new(post: post, author: user, text: 'This is my first comment')
+    Comment.new(post:, author: user, text: 'This is my first comment')
   end
 
   before { subject.save }

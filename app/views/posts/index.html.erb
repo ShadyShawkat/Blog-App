@@ -31,6 +31,7 @@
           </div>
         </div>
 
+        <% if post.comments.length > 0 %>
           <div class="comments-card">
             <ul class="post-comments">
               <% post.last_five_comments.each do |comment| %>
@@ -38,6 +39,7 @@
               <% end %>
             </ul>
           </div>
+        <% end %>
       <% end %>
     </li>
   <% end %>

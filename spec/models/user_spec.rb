@@ -9,4 +9,9 @@ RSpec.describe User, type: :model do
     subject.name = nil
     expect(subject).to_not be_valid
   end
+
+  it 'posts_counter should be greater than or equal to zero' do 
+    subject.posts_counter = -5
+    expect(subject).to_not be_valid
+  end
 end

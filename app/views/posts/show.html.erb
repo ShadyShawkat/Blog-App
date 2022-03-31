@@ -7,10 +7,12 @@
   </div>
 </div>
 
-<div class="comments-card">
-  <ul class="post-comments">
-    <% @post.comments.each do |comment| %>
-      <li><%= comment.author.name %>: &nbsp; <%= comment.text %></li>
-    <% end %>
-  </ul>
-</div>
+<% if @post.comments.length > 0 %>
+  <div class="comments-card">
+    <ul class="post-comments">
+      <% @post.last_five_comments.each do |comment| %>
+        <li><%= comment.author.name %>: &nbsp; <%= comment.text %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

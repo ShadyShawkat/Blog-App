@@ -19,4 +19,8 @@ RSpec.describe Post, type: :model do
     subject.comments_counter = -5
     expect(subject).to_not be_valid
   end
+
+  it 'subject should be valid' do
+    expect(subject).to be_valid
+  end
 end

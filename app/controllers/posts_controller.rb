@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = User.includes(:comments, :posts).find(params[:user_id])
   end
 
   def show
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
           # success message
           flash[:success] = 'Post created successfully'
           # redirect to index
-          redirect_to '/users/1/posts'
+          redirect_to "/users/#{current_user.id}/posts"
         else
           # error message
           flash.now[:error] = 'Error: Post could not be created'

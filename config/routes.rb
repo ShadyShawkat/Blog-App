@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   post 'posts', to: 'posts#create'
   post 'comments/:post_id', to: 'comments#create'
   post 'likes/:post_id', to: 'likes#create'
-  
   resources :users, only: [:index, :show] do
-    resources 'posts', on: :show, only: [:index, :show]
+    resources :posts, on: :show, only: [:index, :show, :destroy] do
+      resources :comments, only: [:destroy]
+    end
   end
   # Defines the root path route ("/")
 

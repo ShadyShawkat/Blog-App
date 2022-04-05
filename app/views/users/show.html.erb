@@ -1,6 +1,6 @@
 <div class="user-card">
   <div class="card-img">
-    <%= !@user.photo.nil? ? image_tag(@user.photo): image_tag("user-img-placeholder.png") %>
+    <%= @user.photo.nil? ? image_tag(@user.photo): image_tag("user-img-placeholder.png") %>
   </div>
   <div class="card-content">
     <h4>

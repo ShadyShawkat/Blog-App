@@ -4,6 +4,9 @@
   <div class="post-details-counter">
     <span>Likes: <%= @post.likes_counter || 0 %></span>
     <span>Comments: <%= @post.comments_counter || 0 %></span>
+    <% if can? :destroy , @post %>
+      <%= button_to "Delete", user_post_path, method: :delete, class: "btn-delete" %>
+    <% end %>
   </div>
 </div>
 
@@ -12,6 +15,9 @@
     <ul class="post-comments">
       <% @post.last_five_comments.each do |comment| %>
         <li><%= comment.author.name %>: &nbsp; <%= comment.text %></li>
+          <% if can? :destroy , comment %>
+            <%= button_to "Comment Delete", user_post_comment_path(user_id: current_user.id, post_id: @post.id, id: comment.id), method: :delete, class: "btn-delete" %>
+          <% end %>
       <% end %>
     </ul>
   </div>

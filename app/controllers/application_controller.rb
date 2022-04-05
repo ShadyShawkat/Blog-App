@@ -11,4 +11,9 @@ class ApplicationController < ActionController::Base
       u.permit(:name, :photo, :bio, :email, :password, :current_password, :role)
     end
   end
+
+  # Catch all CanCan errors and alert the user of the exception
+  rescue_from CanCan::AccessDenied do | exception |
+    redirect_to root_url, alert: exception.message
+  end
 end

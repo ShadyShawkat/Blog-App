@@ -4,7 +4,9 @@
   <div class="post-details-counter">
     <span>Likes: <%= @post.likes_counter || 0 %></span>
     <span>Comments: <%= @post.comments_counter || 0 %></span>
-    <%= button_to "Delete", user_post_path, method: :delete, class: "btn-delete" %>
+    <% if can? :destroy , @post %>
+      <%= button_to "Delete", user_post_path, method: :delete, class: "btn-delete" %>
+    <% end %>
   </div>
 </div>
 

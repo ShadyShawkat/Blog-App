@@ -15,7 +15,9 @@
     <ul class="post-comments">
       <% @post.last_five_comments.each do |comment| %>
         <li><%= comment.author.name %>: &nbsp; <%= comment.text %></li>
-        <%= button_to "Comment Delete", user_post_comment_path(user_id: current_user.id, post_id: @post.id, id: comment.id), method: :delete, class: "btn-delete" %>
+          <% if can? :destroy , comment %>
+            <%= button_to "Comment Delete", user_post_comment_path(user_id: current_user.id, post_id: @post.id, id: comment.id), method: :delete, class: "btn-delete" %>
+          <% end %>
       <% end %>
     </ul>
   </div>

@@ -1,17 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe 'User', :type => :feature do
+RSpec.describe 'User', type: :feature do
   before :all do
     @firstUser = User.find_by(name: 'Tom')
     if @firstUser.nil?
-      @firstUser = User.create(name: 'Tom', photo: 'https://placeholder.com', bio: 'User\'s bio', password:'222555', email: 'tom@example.com')
+      @firstUser = User.create(name: 'Tom', photo: 'https://placeholder.com', bio: 'User\'s bio', password: '222555',
+                               email: 'tom@example.com')
     end
   end
 
   describe 'index' do
     before :all do
-      User.create(name: 'Me', photo: 'https://placeholder.com', password:'333555', email: 'me@example.com')
-      User.create(name: 'You', photo: 'https://placeholder.com', password:'4444555', email: 'you@example.com')
+      User.create(name: 'Me', photo: 'https://placeholder.com', password: '333555', email: 'me@example.com')
+      User.create(name: 'You', photo: 'https://placeholder.com', password: '4444555', email: 'you@example.com')
     end
 
     before :each do
@@ -30,7 +31,7 @@ RSpec.describe 'User', :type => :feature do
     end
 
     it 'See the number of posts each user has written' do
-      expect(page).to have_content("Posts: 0")
+      expect(page).to have_content('Posts: 0')
     end
 
     it 'When I click on a user, I am redirected to that user\'s show page.' do
@@ -43,8 +44,8 @@ RSpec.describe 'User', :type => :feature do
     before :each do
       # @user = User.create(name: 'Tom', photo: 'https://placeholder.com', bio: 'User\'s bio', password:'222555', email: 'tom@example.com')
       visit new_user_session_path
-      fill_in 'Email', with: "tom@example.com"
-      fill_in 'Password', with: "222555"
+      fill_in 'Email', with: 'tom@example.com'
+      fill_in 'Password', with: '222555'
       click_button 'Log in'
 
       if @firstUser.posts.empty?

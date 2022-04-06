@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'Session', :type => :feature do
+RSpec.describe 'Session', type: :feature do
   describe 'login page' do
     before :all do
-      User.create(name: 'Tom', photo: 'https://placeholder.com', password:'222555', email: 'tom@example.com')
+      User.create(name: 'Tom', photo: 'https://placeholder.com', password: '222555', email: 'tom@example.com')
     end
 
     before :each do
@@ -22,15 +22,15 @@ RSpec.describe 'Session', :type => :feature do
     end
 
     it 'Shows an error when the login button is clicked with inputs filled incorrectly' do
-      fill_in 'Email', with: "tom@example.com"
-      fill_in 'Password', with: "222444"
+      fill_in 'Email', with: 'tom@example.com'
+      fill_in 'Password', with: '222444'
       click_button 'Log in'
       expect(page).to have_content('Invalid Email or password.')
     end
 
     it 'Shows a success message when the login button is clicked with inputs filled correctly' do
-      fill_in 'Email', with: "tom@example.com"
-      fill_in 'Password', with: "222555"
+      fill_in 'Email', with: 'tom@example.com'
+      fill_in 'Password', with: '222555'
       click_button 'Log in'
       expect(page).to have_content('Signed in successfully.')
     end

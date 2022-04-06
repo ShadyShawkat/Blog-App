@@ -4,9 +4,7 @@ RSpec.describe 'Session', type: :feature do
   describe 'login page' do
     before :all do
       @user = User.new(name: 'Tom', photo: 'https://placeholder.com', password: '222555', email: 'tom@example.com')
-      unless @user.save
-        @user = User.find_by(name: 'Tom')
-      end
+      @user = User.find_by(name: 'Tom') unless @user.save
       visit destroy_user_session_path
     end
 

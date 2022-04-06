@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe 'User', type: :feature do
   before :all do
     visit destroy_user_session_path
-    @firstUser = User.find_by(name: 'Tom')
-    if @firstUser.nil?
-      @firstUser = User.create(name: 'Tom', photo: 'https://placeholder.com', bio: 'User\'s bio', password: '222555',
-                               email: 'tom@example.com')
+    @first_user = User.find_by(name: 'Tom')
+    if @first_user.nil?
+      @first_user = User.create(name: 'Tom', photo: 'https://placeholder.com', bio: 'User\'s bio', password: '222555',
+                                email: 'tom@example.com')
     end
   end
 
@@ -43,25 +43,27 @@ RSpec.describe 'User', type: :feature do
 
   describe 'show' do
     before :each do
-      # @user = User.create(name: 'Tom', photo: 'https://placeholder.com', bio: 'User\'s bio', password:'222555', email: 'tom@example.com')
       visit new_user_session_path
       fill_in 'Email', with: 'tom@example.com'
       fill_in 'Password', with: '222555'
       click_button 'Log in'
 
-      if @firstUser.posts.count < 3
-        @post1 = @firstUser.posts.create!(title: 'Post title 1', text: 'Post text 1') unless @firstUser.posts.find_by(title: 'Post title 1')
-        @post2 = @firstUser.posts.create!(title: 'Post title 2', text: 'Post text 2')
-        @post3 = @firstUser.posts.create!(title: 'Post title 3', text: 'Post text 3')
+      if @first_user.posts.count < 3
+        unless @first_user.posts.find_by(title: 'Post title 1')
+          @post1 = @first_user.posts.create!(title: 'Post title 1',
+                                             text: 'Post text 1')
+        end
+        @post2 = @first_user.posts.create!(title: 'Post title 2', text: 'Post text 2')
+        @post3 = @first_user.posts.create!(title: 'Post title 3', text: 'Post text 3')
       end
-      @post1 = @firstUser.posts.find(1)
-      @post2 = @firstUser.posts.find(2)
-      @post3 = @firstUser.posts.find(3)
+      @post1 = @first_user.posts.find(1)
+      @post2 = @first_user.posts.find(2)
+      @post3 = @first_user.posts.find(3)
       click_link 'Tom'
     end
 
     it 'shows the correct path' do
-      expect(page).to have_current_path(user_path(@firstUser))
+      expect(page).to have_current_path(user_path(@first_user))
     end
 
     it 'shows the user profile picture' do
@@ -74,11 +76,11 @@ RSpec.describe 'User', type: :feature do
     end
 
     it 'shows the user post count' do
-      expect(page).to have_content("Posts: #{@firstUser.posts.count}")
+      expect(page).to have_content("Posts: #{@first_user.posts.count}")
     end
 
     it 'shows the user bio' do
-      expect(page).to have_content(@firstUser.bio)
+      expect(page).to have_content(@first_user.bio)
     end
 
     it 'shows the user\'s first three posts' do
@@ -87,13 +89,13 @@ RSpec.describe 'User', type: :feature do
 
     it 'shows the user\'s posts when any post is clicked' do
       click_link @post1.title
-      expect(page).to have_current_path(user_posts_path(@firstUser))
+      expect(page).to have_current_path(user_posts_path(@first_user))
     end
 
     it 'shows the post details when any post is clicked in the post index page' do
       click_link @post1.title
       click_link @post1.title
-      expect(page).to have_current_path(user_post_path(@firstUser, @post1))
+      expect(page).to have_current_path(user_post_path(@first_user, @post1))
     end
   end
 end

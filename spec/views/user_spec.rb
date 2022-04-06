@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User', type: :feature do
   before :all do
+    visit destroy_user_session_path
     @firstUser = User.find_by(name: 'Tom')
     if @firstUser.nil?
       @firstUser = User.create(name: 'Tom', photo: 'https://placeholder.com', bio: 'User\'s bio', password: '222555',
@@ -48,15 +49,14 @@ RSpec.describe 'User', type: :feature do
       fill_in 'Password', with: '222555'
       click_button 'Log in'
 
-      if @firstUser.posts.empty?
-        @post1 = @firstUser.posts.create(title: 'Post title 1', text: 'Post text 1')
-        @post2 = @firstUser.posts.create(title: 'Post title 2', text: 'Post text 2')
-        @post3 = @firstUser.posts.create(title: 'Post title 3', text: 'Post text 3')
-      else
-        @post1 = @firstUser.posts.find(1)
-        @post2 = @firstUser.posts.find(2)
-        @post3 = @firstUser.posts.find(3)
+      if @firstUser.posts.count < 3
+        @post1 = @firstUser.posts.create!(title: 'Post title 1', text: 'Post text 1') unless @firstUser.posts.find_by(title: 'Post title 1')
+        @post2 = @firstUser.posts.create!(title: 'Post title 2', text: 'Post text 2')
+        @post3 = @firstUser.posts.create!(title: 'Post title 3', text: 'Post text 3')
       end
+      @post1 = @firstUser.posts.find(1)
+      @post2 = @firstUser.posts.find(2)
+      @post3 = @firstUser.posts.find(3)
       click_link 'Tom'
     end
 

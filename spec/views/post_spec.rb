@@ -12,8 +12,8 @@ RSpec.describe 'Post', type: :feature do
     fill_in 'Password', with: '222555'
     click_button 'Log in'
 
-    @post = Post.find_by(title: 'Post title 1')
-    @post = Post.create(title: 'Post title 1', text: 'Post text 1') if @post.nil?
+    @post = @firstUser.posts.find_by(title: 'Post title 1')
+    @post = @firstUser.posts.create!(title: 'Post title 1', text: 'Post text 1') if @post.nil?
     if @post.comments.empty?
       @comment1 = @post.comments.create(text: 'Comment text 1', user_id: @firstUser.id)
       @comment2 = @post.comments.create(text: 'Comment text 2', user_id: @firstUser.id)
@@ -56,6 +56,7 @@ RSpec.describe 'Post', type: :feature do
     end
 
     it 'See the first comments on a post.' do
+      # expect(page).to have_current_path user_posts_path(@firstUser)
       expect(page).to have_content('Comment text 1')
     end
 

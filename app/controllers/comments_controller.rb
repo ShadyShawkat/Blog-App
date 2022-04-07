@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_post, only: [:index, :create, :show, :update, :destroy]
+  before_action :set_post, only: %i[index create show update destroy]
 
   def index
     json_response(@post.comments)
@@ -49,5 +49,4 @@ class CommentsController < ApplicationController
   def set_post
     @post = Post.find(params[:post_id])
   end
-
 end

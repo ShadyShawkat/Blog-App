@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:index, :create, :show, :update, :destroy]
+  before_action :set_user, only: %i[index create show update destroy]
 
   def index
     # @users = User.all
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def show
     # @user = User.find(params[:id])
     json_response(@user)
-  
+
     # if params[:id] == 'sign_out'
     #   sign_out
     #   redirect_to root_path
@@ -32,5 +32,4 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
 end

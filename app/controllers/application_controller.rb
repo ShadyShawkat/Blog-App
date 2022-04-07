@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
   include Response
   include ExceptionHandler
-  
+
   # protect_from_forgery with: :exception
 
   # before_action :update_allowed_parameters, if: :devise_controller?

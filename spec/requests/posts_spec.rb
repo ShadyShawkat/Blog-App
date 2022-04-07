@@ -53,7 +53,7 @@
 #   # Test suite for POST /posts
 #   describe 'POST /posts' do
 #     # valid payload
-#     let(:valid_attributes) { { title: 'Learn Elm', text: 'Lorem ipsum', user_id: 1, created_at: 123, updated_at: 1233 } }
+#     let(:valid_attributes) { { title: 'Learn Elm', text: 'Lorem ipsum', user_id: 1 } }
 
 #     context 'when the request is valid' do
 #       before { post users_posts_path(user), params: valid_attributes }

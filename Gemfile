@@ -78,4 +78,8 @@ group :test do
   gem 'ffi'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'faker'
+  gem 'database_cleaner'
 end
